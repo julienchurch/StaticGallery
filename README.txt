@@ -1,4 +1,4 @@
-# StaticGallery
+#StaticGallery
 
 StaticGallery is a standalone SCSS mixin to create a gallery with fixed-width columns.
 
@@ -14,7 +14,7 @@ The API is tries to be stupid simple while remaining unopinionated. Peep it:
 
 Because the gallery is static, `@media` breakpoints are automatically generated based on the values you provide. If you're targeting specific breakpoints, you must work them into your column and gutter dimensions. (Think about it—it wouldn't work any other way.) 
 
-## Explanation of parameters
+##Explanation of parameters
 
  Parameters: 
    $columnWidth
@@ -33,7 +33,7 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
    $class
      The class you have set your gallery items to. Defaults to `.gallery-item`
 
-## Example use
+##Example use
 
     .gallery {
       @include staticGallery(225px, 24px, 50px, 14px, $galleryMaxWidth: 1000px, $class: ".item");
