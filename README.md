@@ -21,10 +21,10 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
   **$columnWidth**  
     The width that each column (and thereby each gallery item) should be.
 
-  **$gutterVertical**
+  **$gutterVertical**  
     The margin between columns.  
 
-  **$gutterHorizontal**  
+  **$gutterHorizontal**   
   The margin between rows.
 
   **$galleryPadding:**  
