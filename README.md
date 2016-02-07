@@ -2,7 +2,7 @@
 
 StaticGallery is a standalone SCSS mixin to create a gallery with fixed-width columns.
 
-The API is tries to be stupid simple while remaining unopinionated. Peep it:
+The API tries to be stupid simple while remaining unopinionated. Peep it:
 
 
 ```
