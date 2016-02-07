@@ -18,8 +18,6 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
 
 ##Explanation of parameters
 
-###Parameters: 
-
   **$columnWidth**  
     The width that each column (and thereby each gallery item) should be.
 
