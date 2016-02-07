@@ -18,22 +18,27 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
 
 ##Explanation of parameters
 
- Parameters: 
-   $columnWidth
-     The width that each column (and thereby each gallery item) should be.
-   $gutterVertical
-     The margin between columns.
-   $gutterHorizontal
-     The margin between rows.
-   $galleryPadding:
-     The amount of padding on each side of the gallery. Top and bottom
-     padding are unimportant to this calculation and should be set outside
-     this API.
-   $galleryMaxWidth:
-     The maximum width that you wish the gallery to support. Any viewport size
-     beyond this width will be ignored. Defaults to `1200px`.
-   $class
-     The class you have set your gallery items to. Defaults to `.gallery-item`
+###Parameters: 
+
+  *$columnWidth*
+    The width that each column (and thereby each gallery item) should be.
+
+  *$gutterVertical*
+    The margin between columns.
+
+  *$gutterHorizontal*
+    The margin between rows.
+
+  *$galleryPadding:*
+    The amount of padding on each side of the gallery. Top and bottom
+    padding are unimportant to this calculation and should be set outside
+    this API.
+
+  *$galleryMaxWidth:*
+    The maximum width that you wish the gallery to support. Any viewport size
+    beyond this width will be ignored. Defaults to `1200px`.
+  *$class*
+    The class you have set your gallery items to. Defaults to `.gallery-item`
 
 ##Example use
 
