@@ -1,0 +1,32 @@
+// StaticGallery MIXIN 
+// ===================
+// Parameters: 
+//   $columnWidth
+//     The width that each column (and thereby each gallery item) should be.
+//   $gutterVertical
+//     The margin between columns.
+//   $gutterHorizontal
+//     The margin between rows.
+//   $galleryPadding:
+//     The amount of padding on each side of the gallery. Top and bottom
+//     padding are unimportant to this calculation and should be set outside
+//     this API.
+//   $galleryMaxWidth:
+//     The maximum width that you wish the gallery to support. Any viewport size
+//     beyond this width will be ignored.
+.gallery {
+  @include staticGallery(225px, 24px, 50px, 14px, $class: ".item");
+  .item {
+    background: #222;
+    min-height: 100px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 14px;
+    }
+    span {
+      color: #222;
+    }
+  }
+}
