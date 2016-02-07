@@ -1,16 +1,18 @@
-#StaticGallery
+# StaticGallery
 
 StaticGallery is a standalone SCSS mixin to create a gallery with fixed-width columns.
 
 The API is tries to be stupid simple while remaining unopinionated. Peep it:
 
 
-    @include staticGallery( <columnWidth>
-                          , <gutterVertical>
-                          , <gutterHorizontal>
-                          , <galleryPadding>
-                          , [galleryMaxWidth: 1200px]
-                          , [class: "__gallery-item"] );
+```
+@include staticGallery( <columnWidth>
+                      , <gutterVertical>
+                      , <gutterHorizontal>
+                      , <galleryPadding>
+                      , [galleryMaxWidth: 1200px]
+                      , [class: "__gallery-item"] );
+```
 
 Because the gallery is static, `@media` breakpoints are automatically generated based on the values you provide. If you're targeting specific breakpoints, you must work them into your column and gutter dimensions. (Think about it—it wouldn't work any other way.) 
 
@@ -35,11 +37,13 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
 
 ##Example use
 
-    .gallery {
-      @include staticGallery(225px, 24px, 50px, 14px, $galleryMaxWidth: 1000px, $class: ".item");
-      .item {
-        background: #222;
-        min-height: 100px; // Heights are NOT set by the mixin
-        overflow: hidden;
-      }
-    }
+```scss
+.gallery {
+  @include staticGallery(225px, 24px, 50px, 14px, $galleryMaxWidth: 1000px, $class: ".item");
+  .item {
+    background: #222;
+    min-height: 100px; // Heights are NOT set by the mixin
+    overflow: hidden;
+  }
+}
+```
