@@ -27,12 +27,12 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
   **$gutterHorizontal**   
   The margin between rows.
 
-  **$galleryPadding:**  
+  **$galleryPadding**  
     The amount of padding on each side of the gallery. Top and bottom
     padding are unimportant to this calculation and should be set outside
     this API.
 
-  **$galleryMaxWidth:**  
+  **$galleryMaxWidth**  
     The maximum width that you wish the gallery to support. Any viewport size
     beyond this width will be ignored. Defaults to `1200px`.
 
