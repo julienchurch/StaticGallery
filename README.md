@@ -45,9 +45,8 @@ Because the gallery is static, `@media` breakpoints are automatically generated 
 .gallery {
   @include staticGallery(225px, 24px, 50px, 14px, $galleryMaxWidth: 1000px, $class: ".item");
   .item {
-    background: #222;
     min-height: 100px; // Heights are NOT set by the mixin
-    overflow: hidden;
+    background: #222;
   }
 }
 ```
