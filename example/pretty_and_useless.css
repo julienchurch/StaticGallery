@@ -1,0 +1,10 @@
+body {
+  margin: 0; }
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 15px; }
+
+.code {
+  font-family: courier, monospace; }
