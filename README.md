@@ -54,3 +54,7 @@ StaticGallery is not a grid system. It shares some *ideas* with grid systems, bu
   }
 }
 ```
+
+## Caveats
+
+* The default margin on `body` will *totally donk up the gallery* if it's left in place. Similarly, if StaticGallery is wrapped in another element with similar margins, expect more updonking. This is unavoidable; it happens because you're constraining the StaticGallery to a different size than the elements you're passing in.
