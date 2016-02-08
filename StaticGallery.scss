@@ -53,13 +53,13 @@
                     , $gutterHorizontal
                     , $galleryPadding
                     , $galleryMaxWidth: 1200px 
-                    , $class: "__gallery-item") {
+                    , $class: () ) {
 
   // HELPERS
   // =======
 
-  @function stripUnit($number) {
-    @return $number / ($number * 0 + 1);
+  @function stripUnit( $number ) {
+    @return $number / ( $number * 0 + 1 );
   }
 
   @function getBreakpoints( $maxColumns
@@ -71,25 +71,29 @@
           // width of a scroll bar. Scrollbars are usually ~17px, so the extra
           // 3px are there for safety/ease of mental math
         $breakpoint: $maxColumns * 
-                     ($columnWidth + $gutterVertical) - $gutterVertical +
-                     ($galleryPadding * 2) + 20;
-        @return append(getBreakpoints($maxColumns - 1,
-                                      $columnWidth,
-                                      $gutterVertical,
-                                      $galleryPadding),
-                                      $breakpoint);
+                     ( $columnWidth + $gutterVertical ) - $gutterVertical +
+                     ( $galleryPadding * 2 ) + 20;
+        @return append(getBreakpoints( $maxColumns - 1
+                                     , $columnWidth
+                                     , $gutterVertical
+                                     , $galleryPadding )
+                                     , $breakpoint );
     }
       // Base case; returns an empty list to concatenate with the call above.
     @return (); 
   }
 
-  $galleryTrueWidth: $galleryMaxWidth - ($galleryPadding * 2);
-  $maxColumns: floor(stripUnit($galleryTrueWidth + $gutterVertical) /
-               stripUnit($columnWidth + $gutterVertical));
-  $breakpoints: getBreakpoints($maxColumns,
-                                 $columnWidth,
-                                 $gutterVertical,
-                                 $galleryPadding);
+  $galleryTrueWidth: $galleryMaxWidth - ( $galleryPadding * 2 );
+  $maxColumns: floor(stripUnit( $galleryTrueWidth + $gutterVertical ) /
+               stripUnit( $columnWidth + $gutterVertical ) );
+  $breakpoints: getBreakpoints( $maxColumns
+                              , $columnWidth
+                              , $gutterVertical
+                              , $galleryPadding );
+  @if $class == () {
+    $class: #{ & + "__gallery-item" };
+  }
+
 
     position: relative;
     display: inline-block;
