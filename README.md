@@ -11,7 +11,7 @@ The API tries to be stupid simple while remaining unopinionated. Peep it:
                       , <gutterHorizontal>
                       , <galleryPadding>
                       , [galleryMaxWidth: 1200px]
-                      , [class: "__gallery-item"] );
+                      , [class: ".gallery__gallery-item"] );
 ```
 
 Because the gallery is static, `@media` breakpoints are automatically generated based on the values you provide. If you're targeting specific breakpoints, you must work them into your column and gutter dimensions. (Think about it—it wouldn't work any other way.) 
@@ -41,7 +41,7 @@ StaticGallery is not a grid system. It shares some *ideas* with grid systems, bu
     beyond this width will be ignored. Defaults to `1200px`.
 
   **$class**  
-    The class you have set your gallery items to. Defaults to `.gallery-item`
+    The class you have set your gallery items to. Defaults to `.gallery__gallery-item`
 
 ##Example use
 
