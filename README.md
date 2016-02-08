@@ -16,6 +16,10 @@ The API tries to be stupid simple while remaining unopinionated. Peep it:
 
 Because the gallery is static, `@media` breakpoints are automatically generated based on the values you provide. If you're targeting specific breakpoints, you must work them into your column and gutter dimensions. (Think about it—it wouldn't work any other way.) 
 
+## What StaticGallery is *not*
+
+StaticGallery is not a grid system. It shares some *ideas* with grid systems, but it does not itself export any grid features. Its scope is extremely specific: a responsive, drop-in, statically-dimensioned gallery.
+
 ##Explanation of parameters
 
   **$columnWidth**  
