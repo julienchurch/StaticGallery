@@ -1,3 +1,4 @@
+# Ignore Vim swap files
 *.swp
-.sass-cache
+# Ignore OSX custom attribute files
 .DS_Store
