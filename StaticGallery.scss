@@ -33,21 +33,43 @@
 // columns; the breakpoints won't match up with the widths of the columns and
 // you'll end up with a lot of wasted space.
 
-// HELPERS
-// =======
+// PARAMETERS 
+// ===================
+//   $columnWidth
+//     The width that each column (and thereby each gallery item) should be.
+//   $gutterVertical
+//     The margin between columns.
+//   $gutterHorizontal
+//     The margin between rows.
+//   $galleryPadding
+//     The amount of padding on each side of the gallery. Top and bottom
+//     padding are unimportant to this calculation and should be set outside
+//     this API.
+//   $galleryMaxWidth
+//     The maximum width that you wish the gallery to support. Any viewport size
+//     beyond this width will be ignored.
+@mixin staticGallery( $columnWidth
+                    , $gutterVertical
+                    , $gutterHorizontal
+                    , $galleryPadding
+                    , $galleryMaxWidth: 1200px 
+                    , $class: "__gallery-item") {
 
-@function stripUnit($number) {
+  // HELPERS
+  // =======
+
+  @function stripUnit($number) {
     @return $number / ($number * 0 + 1);
-}
+  }
 
-@function getBreakpoints( $maxColumns
-                        , $columnWidth
-                        , $gutterVertical
-                        , $galleryPadding ) {
+  @function getBreakpoints( $maxColumns
+                          , $columnWidth
+                          , $gutterVertical
+                          , $galleryPadding ) {
     @if $maxColumns > 0 {
-        // The (+20) dangling at the end of $breakpoint compensates for the
-        // width of a scroll bar. Scrollbars are usually ~17px, so the extra
-        // 3px are there for safety/ease of mental math
+          // The (+20) dangling at the end of $breakpoint compensates for the
+          // width of a scroll bar. Scrollbars are usually ~17px, so the extra
+          // 3px are there for safety/ease of mental math
         $breakpoint: $maxColumns * 
                      ($columnWidth + $gutterVertical) - $gutterVertical +
                      ($galleryPadding * 2) + 20;
@@ -57,46 +79,14 @@
                                       $galleryPadding),
                                       $breakpoint);
     }
-    // Base case; returns an empty list to concatenate with the call above.
+      // Base case; returns an empty list to concatenate with the call above.
     @return (); 
-}
+  }
 
-@mixin clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-// staticGallery MIXIN 
-// ===================
-// Parameters: 
-//   $columnWidth
-//     The width that each column (and thereby each gallery item) should be.
-//   $gutterVertical
-//     The margin between columns.
-//   $gutterHorizontal
-//     The margin between rows.
-//   $galleryPadding:
-//     The amount of padding on each side of the gallery. Top and bottom
-//     padding are unimportant to this calculation and should be set outside
-//     this API.
-//   $galleryMaxWidth:
-//     The maximum width that you wish the gallery to support. Any viewport size
-//     beyond this width will be ignored.
-@mixin staticGallery( $columnWidth
-                    , $gutterVertical
-                    , $gutterHorizontal
-                    , $galleryPadding
-                    , $galleryMaxWidth: 1200px 
-                    , $class: "__gallery-item") {
-    $galleryTrueWidth: $galleryMaxWidth - ($galleryPadding * 2);
-
-    $maxColumns: floor(stripUnit($galleryTrueWidth + $gutterVertical) /
-                 stripUnit($columnWidth + $gutterVertical));
-
-    $breakpoints: getBreakpoints($maxColumns,
+  $galleryTrueWidth: $galleryMaxWidth - ($galleryPadding * 2);
+  $maxColumns: floor(stripUnit($galleryTrueWidth + $gutterVertical) /
+               stripUnit($columnWidth + $gutterVertical));
+  $breakpoints: getBreakpoints($maxColumns,
                                  $columnWidth,
                                  $gutterVertical,
                                  $galleryPadding);
@@ -109,33 +99,37 @@
     padding-left: $galleryPadding;
     padding-right: $galleryPadding;
     transform: translateX(-50%);
-    @include clearfix;
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
     #{ $class }{
-        position: relative;
-        display: inline-block;
-        float: left;
-        width: 100%;
-        margin-bottom: $gutterHorizontal;
+      position: relative;
+      display: inline-block;
+      float: left;
+      width: 100%;
+      margin-bottom: $gutterHorizontal;
     }
     // Media queries
     @each $bp in $breakpoints {
-        $i: index($breakpoints, $bp);
-        @media screen and (min-width: #{$bp}) {
-            #{ $class } {
-                width: $columnWidth;
-                @if not($i == 1) {
-                    $p: $i - 1;
-                    &:nth-of-type(#{$p + "n"} + 1) {
-                        clear: none;
-                        margin-left: $gutterVertical;
-                    }
-                }
-                &:nth-of-type(#{$i + "n"} + 1) {
-                    clear: left;
-                    margin-left: 0;
-                }
+      $i: index($breakpoints, $bp);
+      @media screen and (min-width: #{$bp}) {
+        #{ $class } {
+          width: $columnWidth;
+            @if not($i == 1) {
+              $p: $i - 1;
+              &:nth-of-type(#{$p + "n"} + 1) {
+              clear: none;
+              margin-left: $gutterVertical;
             }
+          }
+        &:nth-of-type(#{$i + "n"} + 1) {
+          clear: left;
+          margin-left: 0;
         }
+      }
     }
+  }
 }
 
