@@ -11,52 +11,52 @@
     content: "";
     display: table;
     clear: both; }
-  .gallery .item {
+  .gallery .gallery__gallery-item {
     position: relative;
     display: inline-block;
     float: left;
     width: 100%;
     margin-bottom: 50px; }
   @media screen and (min-width: 273px) {
-    .gallery .item {
+    .gallery .gallery__gallery-item {
       width: 225px; }
-      .gallery .item:nth-of-type(1n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(1n + 1) {
         clear: left;
         margin-left: 0; } }
   @media screen and (min-width: 522px) {
-    .gallery .item {
+    .gallery .gallery__gallery-item {
       width: 225px; }
-      .gallery .item:nth-of-type(1n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(1n + 1) {
         clear: none;
         margin-left: 24px; }
-      .gallery .item:nth-of-type(2n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(2n + 1) {
         clear: left;
         margin-left: 0; } }
   @media screen and (min-width: 771px) {
-    .gallery .item {
+    .gallery .gallery__gallery-item {
       width: 225px; }
-      .gallery .item:nth-of-type(2n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(2n + 1) {
         clear: none;
         margin-left: 24px; }
-      .gallery .item:nth-of-type(3n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(3n + 1) {
         clear: left;
         margin-left: 0; } }
   @media screen and (min-width: 1020px) {
-    .gallery .item {
+    .gallery .gallery__gallery-item {
       width: 225px; }
-      .gallery .item:nth-of-type(3n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(3n + 1) {
         clear: none;
         margin-left: 24px; }
-      .gallery .item:nth-of-type(4n + 1) {
+      .gallery .gallery__gallery-item:nth-of-type(4n + 1) {
         clear: left;
         margin-left: 0; } }
-  .gallery .item {
+  .gallery__gallery-item {
     background: #222;
     min-height: 100px;
     overflow: hidden; }
-    .gallery .item img {
+    .gallery__gallery-item img {
       width: 100%;
       max-width: 100%;
       margin-bottom: 14px; }
-    .gallery .item span {
+    .gallery__gallery-item span {
       color: #222; }
