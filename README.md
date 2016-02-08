@@ -1,6 +1,6 @@
 # StaticGallery
 
-StaticGallery is a standalone SCSS mixin to create a gallery with fixed-width columns. These are my favorite galleries from an aesthetic and UX perspective, but doing the calculations for one isn't fun. So I automated it.
+StaticGallery is a standalone SCSS mixin to create a responsive gallery with fixed-width columns. This is my favorite type of gallery from an aesthetic and UX perspective, but doing the calculations for one isn't fun. So I automated it.
 
 The API tries to be stupid simple while remaining unopinionated. Peep it:
 
