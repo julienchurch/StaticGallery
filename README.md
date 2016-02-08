@@ -41,7 +41,7 @@ StaticGallery is not a grid system. It shares some *ideas* with grid systems, bu
     beyond this width will be ignored. Defaults to `1200px`.
 
   **$class**  
-    The class you have set your gallery items to. Defaults to `.gallery__gallery-item`
+    The class you have set your gallery items to. Defaults to `&__gallery-item`
 
 ##Example use
 
