@@ -1,0 +1,28 @@
+{
+  "name": "static-gallery",
+  "version": "0.0.1",
+  "description": "A static gallery generator in SASS.",
+  "main": "n/a",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julienchurch/StaticGallery.git"
+  },
+  "author": "Julien Church",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julienchurch/StaticGallery/issues"
+  },
+  "homepage": "https://github.com/julienchurch/StaticGallery#readme"
+}
