@@ -15,7 +15,7 @@
 //     The maximum width that you wish the gallery to support. Any viewport size
 //     beyond this width will be ignored.
 .gallery {
-  @include staticGallery( 225px, 24px, 50px, 14px );
+  @include StaticGallery( 225px, 24px, 50px, 14px );
   &__gallery-item {
     background: #222;
     min-height: 100px;

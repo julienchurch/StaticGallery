@@ -6,7 +6,7 @@ The API tries to be stupid simple while remaining unopinionated. Peep it:
 
 
 ```
-@include staticGallery( <columnWidth>
+@include StaticGallery( <columnWidth>
                       , <gutterVertical>
                       , <gutterHorizontal>
                       , <galleryPadding>
@@ -47,7 +47,7 @@ StaticGallery is not a grid system. It shares some ideas with grid systems, but 
 
 ```scss
 .gallery {
-  @include staticGallery(225px, 24px, 50px, 14px, $galleryMaxWidth: 1000px, $class: ".item");
+  @include StaticGallery(225px, 24px, 50px, 14px, $galleryMaxWidth: 1000px, $class: ".item");
   .item {
     min-height: 100px; // Heights are NOT set by the mixin
     background: #222;

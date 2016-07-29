@@ -48,40 +48,44 @@
 //   $galleryMaxWidth
 //     The maximum width that you wish the gallery to support. Any viewport size
 //     beyond this width will be ignored.
-@mixin staticGallery( $columnWidth
+
+// HELPERS
+// =======
+
+@function stripUnit( $number ) {
+  @return $number / ( $number * 0 + 1 );
+}
+
+@function getBreakpoints( $maxColumns
+                        , $columnWidth
+                        , $gutterVertical
+                        , $galleryPadding ) {
+  @if $maxColumns > 0 {
+        // The (+20) dangling at the end of $breakpoint compensates for the
+        // width of a scroll bar. Scrollbars are usually ~17px, so the extra
+        // 3px are there for safety/ease of mental math
+      $breakpoint: $maxColumns * 
+                   ( $columnWidth + $gutterVertical ) - $gutterVertical +
+                   ( $galleryPadding * 2 ) + 20;
+      @return append(getBreakpoints( $maxColumns - 1
+                                   , $columnWidth
+                                   , $gutterVertical
+                                   , $galleryPadding )
+                                   , $breakpoint );
+  }
+    // Base case; returns an empty list to concatenate with the call above.
+  @return (); 
+}
+
+// MIXIN
+// =====
+
+@mixin StaticGallery( $columnWidth
                     , $gutterVertical
                     , $gutterHorizontal
                     , $galleryPadding
                     , $galleryMaxWidth: 1200px 
                     , $class: () ) {
-
-  // HELPERS
-  // =======
-
-  @function stripUnit( $number ) {
-    @return $number / ( $number * 0 + 1 );
-  }
-
-  @function getBreakpoints( $maxColumns
-                          , $columnWidth
-                          , $gutterVertical
-                          , $galleryPadding ) {
-    @if $maxColumns > 0 {
-          // The (+20) dangling at the end of $breakpoint compensates for the
-          // width of a scroll bar. Scrollbars are usually ~17px, so the extra
-          // 3px are there for safety/ease of mental math
-        $breakpoint: $maxColumns * 
-                     ( $columnWidth + $gutterVertical ) - $gutterVertical +
-                     ( $galleryPadding * 2 ) + 20;
-        @return append(getBreakpoints( $maxColumns - 1
-                                     , $columnWidth
-                                     , $gutterVertical
-                                     , $galleryPadding )
-                                     , $breakpoint );
-    }
-      // Base case; returns an empty list to concatenate with the call above.
-    @return (); 
-  }
 
   $galleryTrueWidth: $galleryMaxWidth - ( $galleryPadding * 2 );
   $maxColumns: floor(stripUnit( $galleryTrueWidth + $gutterVertical ) /
